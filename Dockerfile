@@ -1,3 +1,8 @@
-FROM openjdk:12-alpine
-COPY ./target/javaapp-0.0.1-SNAPSHOT.jar /javaapp-0.0.1-SNAPSHOT.jar
-CMD ["java","-jar", "/javaapp-0.0.1-SNAPSHOT.jar"]
+FROM node:14
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+RUN npm install express
+COPY . .
+EXPOSE 3000
+CMD [ "node", "server.js" ]
