@@ -26,6 +26,15 @@ pipeline {
 			sh 'docker push gcr.io/hidden-digit-330710/rob-image:v1'
 			}
 		}
+		stage ('Deployment/service') {
+			steps {
+			sh 'kubectl get deployments,svc'	
+			sh 'kubectl apply -f nodejsmyapp.yaml'
+			sh 'sleep 10'
+			sh 'kubectl rollout status nodejsmyapp/deployment'
+			sh 'sleep 10'
+			sh 'kubectl get deployments.svc'
 		}
 		}
-		
+	}
+}
