@@ -28,7 +28,7 @@ pipeline {
 		}
 		stage ('Deployment/service') {
 			steps {
-			sh 'kubectl get deployments,svc'	
+			//sh 'kubectl get deployments,svc'	
 			sh 'kubectl apply -f nodejsmyapp.yaml'
 			sh 'sleep 10'
 			sh 'kubectl rollout status nodejsmyapp/deployment'
