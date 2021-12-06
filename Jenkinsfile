@@ -22,7 +22,7 @@ pipeline {
 
 		stage ('Pushing Image to GCR') {
 			steps {
-			
+			sh 'gcloud auth configure-docker --quiet'
 			sh 'docker push gcr.io/hidden-digit-330710/rob-image:v1'
 			}
 		}
