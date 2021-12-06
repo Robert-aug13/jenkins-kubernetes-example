@@ -33,7 +33,7 @@ pipeline {
 			//sh 'kubectl get deployments,svc'	
 			sh 'kubectl apply -f nodejsapp.yaml .'
 			sh 'sleep 10'
-			sh 'kubectl rollout status nodejsmyapp/deployment'
+			sh 'kubectl rollout status nodejsapp/deployment'
 			sh 'sleep 10'
 			sh 'kubectl get deployments.svc'
 		}
