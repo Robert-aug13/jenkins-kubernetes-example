@@ -28,6 +28,7 @@ pipeline {
 		}
 		stage ('Deployment/service') {
 			steps {
+			sh 'gcloud container clusters create local-clusterContext --quiet'
 			//sh 'kubectl get deployments,svc'	
 			sh 'kubectl apply -f nodejsmyapp.yaml'
 			sh 'sleep 10'
