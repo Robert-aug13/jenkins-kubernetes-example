@@ -31,7 +31,7 @@ pipeline {
 			sh 'gcloud container clusters create local-clustercontext --zone us-central1-a'
 			sh 'sleep 15'
 			//sh 'kubectl get deployments,svc'	
-			sh 'kubectl create -f nodejsapp.yaml .'
+			sh 'kubectl create -f nodejsapp.yaml'
 			sh 'sleep 10'
 			sh 'kubectl rollout status nodejsapp/deployment'
 			sh 'sleep 10'
