@@ -14,7 +14,7 @@ pipeline {
 		stage ('Building docker image') {
 			steps {
 		        sh 'docker build -t rob-image:v1 .'
-
+                        sh 'docker build -t gcr.io/hidden-digit-330710/rob-image:v1 .'
 			sh  'docker images'
 
 			}
