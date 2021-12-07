@@ -13,7 +13,7 @@ pipeline {
 	
 		stage ('Building docker image') {
 			steps {
-			sh 'sudo chmod 666 /var/run/docker.sock'
+			//sh 'sudo chmod 666 /var/run/docker.sock'
 			sh 'docker  rmi  fca651e9d4ae 2bde98891e3d 1ed72b91fba9 4187cdd19bfc e31b19e56cc9 b6f508728381 ff023dd851d2'
 			sh 'sleep 15'
 		        sh 'docker build -t rob-image:v1 .'
