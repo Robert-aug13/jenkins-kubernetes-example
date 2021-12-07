@@ -41,7 +41,7 @@ pipeline {
 		stage ('cleanup') {
 			steps {
 			
-			sh 'gcloud container clusters delete local-clustercontext --zone us-central1-a'
+			sh 'gcloud container clusters delete local-clustercontext --zone us-central1-a --quiet'
 		        
 			}
 		}
