@@ -39,12 +39,15 @@ pipeline {
 			sh 'kubectl rollout status deployment/nodejs-app'
 			sh 'sleep 10'
 			sh 'kubectl get deployments,svc'
+			sh 'kubectl port-forward service/nodejs-app :32588'
+			
 		}
 		}
 		stage ('cleanup') {
 			steps {
 			
 			sh 'gcloud container clusters delete local-clustercontext --zone us-central1-a --quiet'
+			
 		        
 			}
 		}
