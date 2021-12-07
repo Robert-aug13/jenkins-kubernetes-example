@@ -32,11 +32,18 @@ pipeline {
 			sh 'sleep 15'
 			//sh 'kubectl get deployments,svc'	
 			sh 'kubectl create -f nodejsapp.yaml'
-			sh 'sleep 10'
+			sh 'sleep 12'
 			sh 'kubectl rollout status deployment/nodejs-app'
 			sh 'sleep 10'
-			sh 'kubectl get deployments.svc'
+			sh 'kubectl get deployments,svc'
 		}
+		}
+		stage ('cleanup') {
+			steps {
+			
+			sh 'gcloud container clusters delete local-clustercontext --zone us-central1-a'
+		        
+			}
 		}
 	}
 }
