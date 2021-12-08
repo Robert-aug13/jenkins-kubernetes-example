@@ -39,7 +39,7 @@ pipeline {
 			sh 'kubectl rollout status deployment/nodejs-app'
 			sh 'sleep 10'
 			sh 'kubectl get deployments,svc'
-			sh 'kubectl port-forward service/nodejs-app :3000'
+			sh 'kubectl port-forward service/nodejs-app 80:3000'
 			
 		}
 		}
