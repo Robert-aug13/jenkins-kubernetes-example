@@ -20,7 +20,7 @@ spec:
       - name: nodejs-app
         image: "gcr.io/hidden-digit-330710/rob-image:v1"
         ports:
-          - containerPort: 3000
+          - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -32,6 +32,6 @@ spec:
     app: nodejs-app
   type: LoadBalancer
   ports:
-  - name: http
-    targetPort: 3000
+  - nodePort: 31000
+    targetPort: 80
     port: 80
